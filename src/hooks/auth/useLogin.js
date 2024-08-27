@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { connection } from "../../services/connection";
 import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
+import { AppRoutes } from "../../constants/routes";
 
 const useLogin = () => {
+  const navigation = useNavigate()
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -23,6 +26,9 @@ const useLogin = () => {
        const decoded = jwtDecode(result.data);
        const user = {id: decoded.id, name: decoded.name}
        localStorage.setItem("userData", JSON.stringify(user))
+       if (decoded.id){
+        navigation(AppRoutes.HOME);
+       }
         setUserData({ email: "", password: "" });
       }
     } catch (err) {
