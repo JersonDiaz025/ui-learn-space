@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { connection } from "../../services/connection";
 
 const useRegister = () => {
   const [userDataRegister, setUserDataRegister] = useState({
     name: "",
-    lastName: "",
+    last_name: "",
     phone: "",
     email: "",
     password: "",
@@ -20,16 +21,16 @@ const useRegister = () => {
     try {
       if (
         userDataRegister.name !== "" &&
-        userDataRegister.lastName !== "" &&
+        userDataRegister.last_name !== "" &&
         userDataRegister.phone !== "" &&
         userDataRegister.email !== "" &&
         userDataRegister.password !== ""
       ) {
-        console.log(userDataRegister);
+       await connection("", userDataRegister, "post");
         // Call service
         setUserDataRegister({
           name: "",
-          lastName: "",
+          last_name: "",
           phone: "",
           email: "",
           password: "",

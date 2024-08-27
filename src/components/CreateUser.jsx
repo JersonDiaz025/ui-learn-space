@@ -22,8 +22,8 @@ const CreateUser = () => {
           />
           <label>Apellidos</label>
           <input
-            name="lastName"
-            value={userDataRegister.lastName}
+            name="last_name"
+            value={userDataRegister.last_name}
             onChange={handleChange}
             required
             type="text"
