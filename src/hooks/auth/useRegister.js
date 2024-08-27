@@ -26,7 +26,7 @@ const useRegister = () => {
         userDataRegister.email !== "" &&
         userDataRegister.password !== ""
       ) {
-       await connection("", userDataRegister, "post");
+        await connection("", userDataRegister, "post");
         // Call service
         setUserDataRegister({
           name: "",

@@ -1,4 +1,4 @@
-import "./App.css";
+import "./index.css";
 import { AppRoutes } from "./constants/routes";
 import {
   BrowserRouter as Router,
@@ -6,20 +6,33 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
+import Header from "./components/Header";
+import { USER_INFO_KEY } from "./constants/keyUser";
 import { Dashboard, LoginPage, CreateUser } from "./pages";
 
 function App() {
+  const infoUser = JSON.parse(localStorage.getItem(USER_INFO_KEY));
+
   return (
     <Router>
-      <Routes>
-        <Route path={AppRoutes.HOME} element={<Dashboard />} />
-        <Route path={AppRoutes.LOGIN} element={<LoginPage />} />
-        <Route path={AppRoutes.REGISTER} element={<CreateUser />} />
-        <Route
-          path={AppRoutes.UNKNOWN}
-          element={<Navigate to={AppRoutes.LOGIN} />}
-        />
-      </Routes>
+      <div>
+        {infoUser?.id && (
+          <div style={{ position: "relative", width: "100%" }}>
+            <Header infoUser={infoUser} />
+          </div>
+        )}
+        <main className="body-main">
+          <Routes>
+            <Route path={AppRoutes.HOME} element={<Dashboard />} />
+            <Route path={AppRoutes.LOGIN} element={<LoginPage />} />
+            <Route path={AppRoutes.REGISTER} element={<CreateUser />} />
+            <Route
+              path={AppRoutes.UNKNOWN}
+              element={<Navigate to={AppRoutes.LOGIN} />}
+            />
+          </Routes>
+        </main>
+      </div>
     </Router>
   );
 }

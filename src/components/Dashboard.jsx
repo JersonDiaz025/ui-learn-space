@@ -1,13 +1,10 @@
-import Title from "./Title";
-import Header from "./Header";
+import Address from "./Address";
 
 const Dashboard = () => {
   return (
     <div>
-      <div className="content-header">
-        <Header/>
-      </div>
-      <Title title="Inicio" />
+      <Address />
+      <div></div>
     </div>
   );
 };

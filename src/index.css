@@ -12,6 +12,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
 html {
   --s: 200px;
   /* control the size*/
@@ -25,11 +31,272 @@ html {
   background-size: var(--s) calc(var(--s)*0.577);
 }
 
-body {
-  margin: 0;
+.body-main {
+  /*margin: 0;*/
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  width: 100%;
+  /*place-items: center;*/
+  /*min-width: 320px;
+  min-height: 100vh;*/
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+}
+
+
+
+.content-header {
+  /*position: relative;*/
+}
+
+
+.header {
+  min-width: 100%;
+  width: 100%;
+  background-color: #fff;
+  height: 70px;
+  position: absolute;
+  /*top: -9px;*/
+  /*border-radius: 8px;*/
+  box-shadow: 0 2px 6px #2553b91a;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logout {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 17px;
+  padding: 10px;
+  font-weight: 500;
+  background: #fd0303;
+  color: white;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.6em;
+  cursor: pointer;
+}
+
+.gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 0.6em;
+  margin-top: -0.25em;
+  background-image: linear-gradient(rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.3));
+}
+
+.label {
+  position: relative;
+  top: -1px;
+}
+
+.transition {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 500ms;
+  background-color: rgba(16, 185, 129, 0.6);
+  border-radius: 9999px;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logout:hover .transition {
+  width: 14em;
+  height: 14em;
+}
+
+.logout:active {
+  transform: scale(0.97);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-----login*/
+/* From Uiverse.io by omar-alghaish */
+.form-container {
+  width: 450px;
+  background: linear-gradient(180deg, rgb(0, 183, 255) 25%, rgb(255, 255, 255) 20%);
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
+
+.form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.form-container p {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  font-size: 30px;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+}
+
+.form-container label {
+  color: rgb(40, 42, 44);
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.form-container .input {
+  padding: 10px;
+  color: rgb(15, 15, 15);
+  font-weight: 500;
+  height: 35px;
+  border: none;
+  background-color: rgb(224, 231, 236);
+}
+
+.container-action {
+  display: flex;
+}
+
+.span {
+  color: blue;
+}
+
+.form-container .input:focus {
+  outline: none;
+}
+
+.form-container button {
+  border: none;
+  height: 35px;
+  margin-top: 13px;
+  background-color: rgb(0, 183, 255);
+  color: white;
+  font-size: 16px;
+}
+
+
+
+/*--------Register*/
+
+
+/*-----login*/
+/* From Uiverse.io by omar-alghaish */
+.form-container-register {
+  width: 450px;
+  background: linear-gradient(180deg, rgb(0, 183, 255) 25%, rgb(255, 255, 255) 20%);
+  height: auto;
+  display: flex;
+  padding: 12px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.form-register {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.form-container-register p {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  font-size: 30px;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+}
+
+.form-container-register label {
+  color: rgb(40, 42, 44);
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.form-container-register .input {
+  padding: 10px;
+  color: rgb(15, 15, 15);
+  font-weight: 500;
+  height: 35px;
+  border: none;
+  background-color: rgb(224, 231, 236);
+}
+
+.container-action-register {
+  display: flex;
+}
+
+.span {
+  color: blue;
+}
+
+.form-container-register .input:focus {
+  outline: none;
+}
+
+.form-container-register button {
+  border: none;
+  height: 35px;
+  margin-top: 13px;
+  background-color: rgb(0, 183, 255);
+  color: white;
+  font-size: 16px;
+}
+
+
+
+/*-----------address*/
+/* From Uiverse.io by Sr-Ajo */
