@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { connection } from "../../services/connection";
+import { jwtDecode } from "jwt-decode";
 
 const useLogin = () => {
   const [userData, setUserData] = useState({
@@ -17,8 +19,10 @@ const useLogin = () => {
     try {
       if (userData.email !== "" && userData.password !== "") {
         // Call service
-
-        console.log(userData);
+       const result =  await connection("login", userData, "post");
+       const decoded = jwtDecode(result.data);
+       const user = {id: decoded.id, name: decoded.name}
+       localStorage.setItem("userData", JSON.stringify(user))
         setUserData({ email: "", password: "" });
       }
     } catch (err) {
