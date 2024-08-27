@@ -1,36 +1,72 @@
 /* eslint-disable react/no-unknown-property */
+import { AppRoutes } from "../constants/routes";
+import useRegister from "../hooks/auth/useRegister";
 import Title from "./Title";
 import { Link } from "react-router-dom";
 const CreateUser = () => {
+  const { userDataRegister, handleRegister, handleChange } = useRegister();
   return (
     <div>
-      <div class="form-container-register">
+      <div className="form-container-register">
         <Title title="Registrarse" />
-        <form class="form-register">
+        <form className="form-register" onSubmit={handleRegister}>
           <label>Nombre</label>
-          <input type="text" class="input" placeholder="Escribe tu nombre" />
+          <input
+            name="name"
+            required
+            value={userDataRegister.name}
+            onChange={handleChange}
+            type="text"
+            className="input"
+            placeholder="Escribe tu nombre"
+          />
           <label>Apellidos</label>
           <input
+            name="lastName"
+            value={userDataRegister.lastName}
+            onChange={handleChange}
+            required
             type="text"
-            class="input"
+            className="input"
             placeholder="Escribe tus apellidos"
           />
           <label>Teléfono</label>
-          <input type="tel" class="input" placeholder="000-000-0000" />
+          <input
+            name="phone"
+            type="tel"
+            required
+            value={userDataRegister.phone}
+            onChange={handleChange}
+            className="input"
+            placeholder="000-000-0000"
+          />
           <label>Correo electrónico</label>
           <input
+            name="email"
+            required
+            value={userDataRegister.email}
+            onChange={handleChange}
             type="text"
-            class="input"
+            className="input"
             placeholder="Escribe tu correo electrónico"
           />
           <label>Contraseña</label>
-          <input type="password" class="input" placeholder="Contraseña" />
+          <input
+            name="password"
+            required
+            value={userDataRegister.password}
+            onChange={handleChange}
+            type="password"
+            className="input"
+            placeholder="Contraseña"
+          />
           <div className="container-action-register">
             <span className="span">
-              Tienes una cuenta? <Link to="/login">Iniciar sesión</Link>
+              Tienes una cuenta?{" "}
+              <Link to={AppRoutes.LOGIN}>Iniciar sesión</Link>
             </span>
           </div>
-          <button>Registrarse</button>
+          <button type="submit">Registrarse</button>
         </form>
       </div>
     </div>
