@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { jwtDecode } from "jwt-decode";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../constants/routes";
 import { connection } from "../../services/connection";
@@ -27,6 +28,7 @@ const useLogin = () => {
         const decoded = jwtDecode(result.data);
         const user = { id: decoded.id, name: decoded.name, token: result.data };
         localStorage.setItem(USER_INFO_KEY, JSON.stringify(user));
+        toast.success(result?.message);
         if (decoded.id) {
           navigation(AppRoutes.HOME);
         }

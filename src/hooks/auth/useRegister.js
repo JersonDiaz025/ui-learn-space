@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import { connection } from "../../services/connection";
+import { AppRoutes } from "../../constants/routes";
 
 const useRegister = () => {
+  const navigation = useNavigate();
   const [userDataRegister, setUserDataRegister] = useState({
     name: "",
     last_name: "",
@@ -26,7 +30,11 @@ const useRegister = () => {
         userDataRegister.email !== "" &&
         userDataRegister.password !== ""
       ) {
-        await connection("", userDataRegister, "post");
+        const result = await connection("", userDataRegister, "post");
+        toast.success(result?.message);
+        if (result) {
+          navigation(AppRoutes.LOGIN);
+        }
         // Call service
         setUserDataRegister({
           name: "",

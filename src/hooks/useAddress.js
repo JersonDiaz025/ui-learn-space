@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { connection } from "../services/connection";
 
 const useAddress = () => {
@@ -25,9 +26,9 @@ const useAddress = () => {
         address.city !== ""
       ) {
         // Call service
-       const result = await connection("newAddress", address, "post");
-       console.log(result);
-
+        const result = await connection("newAddress", address, "post");
+        toast.success(result?.message);
+        console.log(result);
         setAddress({ street: "", street_number: "", sector: "", city: "" });
       }
     } catch (err) {

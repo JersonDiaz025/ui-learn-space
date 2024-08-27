@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useLogout } from "../hooks/auth/useLogout";
+import useLogout from "../hooks/auth/useLogout";
 // eslint-disable-next-line react/prop-types
 const Header = ({ infoUser }) => {
   const { handlelogOut } = useLogout();
@@ -18,10 +18,8 @@ const Header = ({ infoUser }) => {
       <div>
         <button className="logout" onClick={handlelogOut}>
           <span className="transition"></span>
-          <span className="gradient" onClick={handlelogOut}></span>
-          <span className="label" onClick={handlelogOut}>
-            Cerrar sesión
-          </span>
+          <span className="gradient"></span>
+          <span className="label">Cerrar sesión</span>
         </button>
       </div>
     </div>

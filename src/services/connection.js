@@ -1,4 +1,5 @@
 import axios from "axios";
+import { USER_INFO_KEY } from "../constants/keyUser";
 
 export const connection = async (
   end_poin = "",
@@ -10,7 +11,7 @@ export const connection = async (
     : "http://localhost:5000/";
 
   try {
-    const userData = JSON.parse(localStorage.getItem("userData"));
+    const userData = JSON.parse(localStorage.getItem(USER_INFO_KEY));
     const token = userData ? userData.token : null;
 
     const headers = token ? { Authorization: `Bearer ${token}` } : {};
@@ -20,7 +21,7 @@ export const connection = async (
       url: url,
       data: method.toUpperCase() === "GET" ? null : requestData,
       params: method.toUpperCase() === "GET" ? requestData : null,
-      headers: headers 
+      headers: headers,
     });
 
     return response.data;
