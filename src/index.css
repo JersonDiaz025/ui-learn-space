@@ -32,7 +32,7 @@ html {
 }
 
 .body-main {
-  pointer-events: none;
+ pointer-events:all;
   /*margin: 0;*/
   display: flex;
   width: 100%;
@@ -53,10 +53,44 @@ html {
   /*position: relative;*/
 }
 
+.product{
+  background-color: #fff;
+  min-width: 400px;
+  height: 500px;
+  padding: 10px;
+  color: #3c3c3c;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  button{
+    padding: 10px 10px;
+    background-color: green;
+    border: none;
+  }
+}
+
+.items{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+
+  span{
+    padding: 8px;
+    background-color: gray;
+  }
+}
+
+
 
 .header {
   min-width: 100%;
   width: 100%;
+  pointer-events:all;
   background-color: #fff;
   height: 70px;
   position: absolute;

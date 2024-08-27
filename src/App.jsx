@@ -9,6 +9,7 @@ import {
 import Header from "./components/Header";
 import { USER_INFO_KEY } from "./constants/keyUser";
 import { Dashboard, LoginPage, CreateUser } from "./pages";
+import Product from "./pages/Product";
 
 function App() {
   const infoUser = JSON.parse(localStorage.getItem(USER_INFO_KEY));
@@ -25,6 +26,8 @@ function App() {
           <Routes>
             <Route path={AppRoutes.HOME} element={<Dashboard />} />
             <Route path={AppRoutes.LOGIN} element={<LoginPage />} />
+            <Route path={AppRoutes.ORDER_PRODUCT} element={<Product />} />
+
             <Route path={AppRoutes.REGISTER} element={<CreateUser />} />
             <Route
               path={AppRoutes.UNKNOWN}
