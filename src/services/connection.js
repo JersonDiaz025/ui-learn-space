@@ -10,11 +10,17 @@ export const connection = async (
     : "http://localhost:5000/";
 
   try {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    const token = userData ? userData.token : null;
+
+    const headers = token ? { Authorization: `Bearer ${token}` } : {};
+
     const response = await axios({
       method: method.toUpperCase(),
       url: url,
       data: method.toUpperCase() === "GET" ? null : requestData,
       params: method.toUpperCase() === "GET" ? requestData : null,
+      headers: headers 
     });
 
     return response.data;

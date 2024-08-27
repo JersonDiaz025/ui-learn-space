@@ -25,7 +25,8 @@ const useAddress = () => {
         address.city !== ""
       ) {
         // Call service
-        await connection("address", address, "post");
+       const result = await connection("newAddress", address, "post");
+       console.log(result);
 
         setAddress({ street: "", street_number: "", sector: "", city: "" });
       }

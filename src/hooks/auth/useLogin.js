@@ -25,7 +25,7 @@ const useLogin = () => {
         // Call service
         const result = await connection("login", userData, "post");
         const decoded = jwtDecode(result.data);
-        const user = { id: decoded.id, name: decoded.name };
+        const user = { id: decoded.id, name: decoded.name, token: result.data };
         localStorage.setItem(USER_INFO_KEY, JSON.stringify(user));
         if (decoded.id) {
           navigation(AppRoutes.HOME);
